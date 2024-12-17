@@ -11,7 +11,22 @@ $couleurRéservation: #9F3770;
 //FONT
 $fontBase: 'Satoshi', sans-serif;
 
+html,body{
+  background-color: #9F3770;
+  padding: 0;
+  margin: 0;
+}
+
+main{
+  width: 90%;
+  margin: 0 auto;
+}
+
 li{
+  list-style-type: none;
+}
+
+a{
   text-decoration: none;
 }
 

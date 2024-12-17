@@ -3,18 +3,57 @@
 {% block title %}Hello ReservationsController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Réservations</h1>
+    <p>Nous rappelons qu'aucune réservation de moins de 72h ne pourra et ne sera validée !
+        Réponse sous 24/48h ouvrées si demande conforme.<br>
+        Si vous rencontrez des soucis de contact via notre formulaire, vous pouvez nous contacter via l'adresse mail :
+        bowlingdes3seine@orange.fr
+    </p>
+    <hr>
+    <form action="">
+        <div>
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required aria-required="true">
+        </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <div>
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required aria-required="true">
+        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/bowling/src/Controller/ReservationsController.php</code></li>
-        <li>Your template at <code>/var/www/bowling/templates/reservations/index.html.twig</code></li>
-    </ul>
-</div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required aria-required="true">
+        </div>
+
+        <div>
+            <label for="telephone">Numéro de téléphone</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="01.23.45.67.89"
+                   pattern="[0-9]{2}\.[0-9]{2}\.[0-9]{2}\.[0-9]{2}\.[0-9]{2}" aria-describedby="phone-hint" required>
+        </div>
+
+        <div class="full-width">
+            <label for="activite">Activité de la réservation</label>
+            <select id="activite" name="activite" required>
+                <option value="" disabled selected>Choisir l'activité</option>
+                <option value="anniversaire">Réservation anniversaire</option>
+                <option value="bowling">Réservation piste de bowling</option>
+                <option value="laserGame">Réservation laser game</option>
+                <option value="sallePrivee">Réservation de salle privée</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="nombre">Nombre de personnes</label>
+            <div class="counter" role="group" aria-labelledby="nombre">
+                <button type="button" aria-label="Réduire" onclick="decrement()">-</button>
+                <input type="number" id="nombre" name="nombre" value="1" min="1" aria-live="polite" readonly>
+                <button type="button" aria-label="Augmenter" onclick="increment()">+</button>
+            </div>
+        </div>
+
+        <div class="full-width">
+            <button type="submit" aria-label="Suivant">Suivant <img src="" alt=""></button>
+        </div>
+    </form>
 {% endblock %}
