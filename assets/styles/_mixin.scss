@@ -1,0 +1,31 @@
+//BOUTTON--------------------------------------------------------
+@mixin boutton($bg:$couleurPrincipale, $color:$couleurbg, $border:$couleurPrincipale) {
+  background: $bg;
+  height: 2.8rem;
+  min-width: 8rem;
+  font-size: 18px;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: $couleurbg;
+  border: 3px solid $border;
+}
+
+@mixin buttonHover($bg:none,$color:$couleurPrincipale ) {
+  background: $bg;
+  color: $color;
+}
+
+//FLEX---------------------------------------------------------------
+@mixin flexColumn($horizontale:center, $verticale: space-around){
+    display: flex;
+    flex-direction: column;
+    align-items: $horizontale;
+    justify-content: $verticale;
+}
+@mixin flexRow($horizontale: space-around, $verticale:center){
+    display: flex;
+    justify-content: $horizontale;
+    align-items: $verticale;
+}
