@@ -1,3 +1,5 @@
-body {
-    background-color: skyblue;
-}
+@import "_mixin.scss";
+@import "_placeholder.scss";
+@import "_layout.scss";
+@import "_global.scss";
+@import "_home.scss";
