@@ -1,1 +1,234 @@
 // récurrent menu, footer, bandeaux, bouton
+//AJOUTER
+.boutonBlanc {
+  @include bouton();
+
+  &:hover {
+    @include boutonHover();
+    path {
+      stroke: $couleurPrincipale;
+    }
+  }
+}
+
+.boutonTransparent {
+  @include bouton(none, $couleurPrincipale);
+  svg{
+    transform: scaleX(-1);
+    path {
+      stroke: $couleurPrincipale;
+
+    }
+  }
+  &:hover {
+    @include boutonHover($couleurPrincipale, $couleurbg);
+    path{
+      stroke: $couleurbg;
+    }
+  }
+}
+//NAVIGATION
+header{
+  position: relative;
+  z-index: 50;
+  nav{
+    @include flexRow(space-between, center);
+    margin: 20px 30px;
+    img{
+      width: 37%;
+    }
+    .menu_ordi {
+      display: none;
+    }
+    .menu_burger{
+      @include flexColumn(flex-end, center);
+      gap:4px;
+      .rect1, .rect2, .rect3{
+        background-color: $couleurPrincipale;
+        width: 35px;
+        height: 3px;
+      }
+    }
+    .menu_burger_tel {
+      display: none;
+      background-color: #9F3770;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      ul{
+        @include flexColumn(center, space-evenly);
+        #cross {
+          width: 10%;
+          position: absolute;
+          right: 25px;
+          top: 25px;
+          cursor: pointer;
+          background: transparent;
+          fill: $couleurPrincipale;
+        }
+        a{
+          color: $couleurPrincipale;
+        }
+      }
+    }
+    .menu_burger_tel.is-open {
+      @include flexRow(center, stretch);
+    }
+  }
+}
+footer{
+  bottom: 0;
+  background: linear-gradient(120deg, #050514, #080618, #0b061c, #0f0720, #130723, #180625, #1c0627, #210529);    display: flex;
+  padding: 1px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  p{
+    @extend %paragraphe;
+  }
+  a{
+    color: $couleurPrincipale;
+  }
+  .nous_contactez{
+    .contact{
+      display: flex;
+      margin: 0 0 15px 0;
+      svg{
+        width: 8%;
+        margin-right: 5%;
+      }
+    }
+  }
+  .info_footer{
+    margin-bottom: 15px;
+    .reseaux_icons{
+      @include flexRow(space-between, center);
+      width: 85%;
+      img#insta{
+        width: 10%;
+      }
+    }
+    p, a{
+      display: flex;
+      margin-bottom: 15px;
+    }
+  }
+  .mentions{
+    @include flexRow(space-between, center);
+    margin-bottom: 15px;
+    a{
+      font-size: 12px;
+    }
+  }
+}
+@media screen and (min-width: 481px){
+
+  //---HEADER--------------------------------------------------------
+
+  header{
+    nav{
+      p{
+        @include paragrapheOrdi;
+      }
+      margin: 2% 8%;
+      display: flex;
+      img{
+        width: 13%;
+      }
+      .menu_ordi {
+        width: 75%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba($couleurPrincipale, 0.1);
+        padding: 15px;
+        border-radius: 50px;
+        a {
+          color: $couleurPrincipale;
+          padding: 10px 20px;
+          border-radius: 50px;
+          text-decoration: none;
+
+          &:hover {
+            background: rgba($couleurPrincipale, 0.2);
+          }
+        }
+
+        a.active {
+          background: rgba($couleurPrincipale, 0.2);
+          border-radius: 50px;
+        }
+
+      }
+      .menu_burger{
+        display: none;
+      }
+      .menu_burger_tel {
+        display: none;
+      }
+      .menu_burger_tel.is-open {
+        @include flexRow(center, stretch);
+      }
+    }
+  }
+
+  //---FOOTER--------------------------------------------------------
+
+  footer{
+    align-content: space-between;
+    min-height: 350px;
+    position: relative;
+    z-index: 100;
+    p, a{
+      @include paragrapheOrdi;
+    }
+    .infos_footer{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      .nous_contactez{
+        width: 100%;
+        .contact{
+          @include flexRow(flex-start, center);
+          svg{
+            width: 12%;
+          }
+        }
+      }
+      .recrutez_formules{
+        @include flexColumn(flex-start, center);
+        width: 100%;
+      }
+      .acces_reseaux{
+        @include flexColumn(flex-start, center);
+        width: 100%;
+      }
+      .info_footer{
+        margin-bottom: 15px;
+        .reseaux_icons{
+          @include flexRow(space-between, center);
+          width: 100%;
+          img#insta{
+            width: 10%;
+            margin-left: 10%;
+          }
+        }
+        p, a{
+          display: flex;
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    .mentions{
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      a{
+        font-size: 12px;
+      }
+    }
+  }
+}
