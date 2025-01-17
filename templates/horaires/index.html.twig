@@ -1,20 +1,302 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HorairesController!{% endblock %}
+{% block title %}Horaires et tarifs{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <svg class="svg neon-left" width="100%" height="100%" viewBox="0 0 940 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_f_125_231_left)">
+            <circle cx="795" cy="350" r="297" fill="url(#paint0_radial_125_231_left)" fill-opacity="0.7"/>
+        </g>
+        <defs>
+            <filter id="filter0_f_125_231_left" x="-654" y="-762" width="1594" height="1594" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_125_231_left"/>
+            </filter>
+            <radialGradient id="paint0_radial_125_231_left" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(143 35) rotate(270) scale(297)">
+                <stop offset="0%" stop-color="#8800F2"/>
+                <stop offset="100%" stop-color="#91199C"/>
+            </radialGradient>
+        </defs>
+    </svg>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <svg class="svg neon-right" width="100%" height="100%" viewBox="0 0 940 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_f_125_231_right)">
+            <circle cx="35" cy="180" r="297" fill="url(#paint0_radial_125_231_right)" fill-opacity="0.7"/>
+        </g>
+        <defs>
+            <filter id="filter0_f_125_231_right" x="-654" y="-762" width="2400" height="2400" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_125_231_right"/>
+            </filter>
+            <radialGradient id="paint0_radial_125_231_right" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(905 750) rotate(90) scale(750)">
+                <stop offset="0%" stop-color="#8800F2"/>
+                <stop offset="100%" stop-color="#91199C"/>
+            </radialGradient>
+        </defs>
+    </svg>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/bowling/src/Controller/HorairesController.php</code></li>
-        <li>Your template at <code>/var/www/bowling/templates/horaires/index.html.twig</code></li>
-    </ul>
-</div>
+
+
+    <div class="main_horaires">
+        <h1>Horaires et tarifs</h1>
+        <h2>Horaires</h2>
+        <p>Nous vous rappelons que tout mineur de -16 ans doit être accompagné d'un adulte. <br> Toute partie commandée ne pourra être remboursée.</p>
+
+        <div class="horaires_groupe">
+            <div class="horaires_sous_groupe">
+                <p>Lundi </p>
+                <p>Fermé</p>
+                <span>Vacances scolaires : 14h - 01h</span>
+            </div>
+            <div class="horaires_sous_groupe">
+                <p>Mardi</p>
+                <p>14h - 01h</p>
+                <span>Vacances scolaires : 14h - 01h</span>
+            </div>
+            <div class="horaires_sous_groupe">
+                <p>Mercredi </p>
+                <p>14h - 01h</p>
+            </div>
+            <div class="horaires_sous_groupe">
+                <p>Jeudi</p>
+                <p>14h - 01h</p>
+            </div>
+            <div class="horaires_sous_groupe">
+                <p>Vendredi</p>
+                <p>14h - 02h</p>
+            </div>
+            <div class="horaires_sous_groupe">
+                <p>Samedi</p>
+                <p>14h - 02h</p>
+            </div>
+            <div class="horaires_sous_groupe_dim">
+                <p>Dimanche </p>
+                <p>20h - 01h</p>
+                <span>Vacances scolaires : 14h - 01h</span>
+            </div>
+        </div>
+
+        <h2>Tarifs</h2>
+
+        <div class="choix_activites">
+            <button id="bouton_bowling" class="boutonTransparent active">Bowling</button>
+            <button id="bouton_laser" class="boutonTransparent">Laser Game</button>
+        </div>
+
+        <!--telephone-->
+        <div id="bowling_tel">
+            <div class="bloc_tarif">
+                <p class="jours">LUNDI <span>(vacances scolaires uniquement)</span> - MARDI - MERCREDI - JEUDI</p>
+                <div class="infos_bloc_tarifs">
+                    <div class="infos">
+                        <p>14h - 19h</p>
+                    </div>
+                    <div class="infos">
+                        <p>Après 19h</p>
+                    </div>
+                    <div class="infos_g">
+                        <p>4.00€ / pers</p>
+                    </div>
+                    <div class="infos_d">
+                        <p>5.50€ / pers</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bloc_tarif">
+                <p>VENDREDI - SAMEDI</p>
+                <div class="infos_bloc_tarifs">
+                    <div class="infos">
+                        <p>14h - 19h</p>
+                    </div>
+                    <div class="infos">
+                        <p>Après 19h</p>
+                    </div>
+                    <div class="infos_g">
+                        <p>5.50€ / pers</p>
+                    </div>
+                    <div class="infos_d">
+                        <p>7.00€ / pers</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bloc_tarif">
+                <p>DIMANCHE</p>
+                <div class="infos_bloc_tarifs">
+                    <div class="infos">
+                        <p>14h - 19h</p>
+                    </div>
+                    <div class="infos">
+                        <p>Après 19h</p>
+                    </div>
+                    <div class="infos_g">
+                        <p>5.50€ / pers</p>
+                    </div>
+                    <div class="infos_d">
+                        <p>5.50€ / pers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--ordi-->
+        <div id="bowling" class="bloc_activite visible">
+            <div class="bloc_tarif_ordi">
+                <div class="jour"><p class="jours">LUNDI <i>(vacances scolaires uniquement)</i> - MARDI - MERCREDI - JEUDI</p></div>
+                <div class="infos_bloc_tarifs">
+                    <div class="infos1">
+                        <p>14h - 19h</p>
+                    </div>
+                    <div class="infos2">
+                        <p>Après 19h</p>
+                    </div>
+                    <div class="infos_g">
+                        <p>4.00€ / pers</p>
+                    </div>
+                    <div class="infos_d">
+                        <p>5.50€ / pers</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bloc_tarif_ordi">
+                <div class="jour"><p>VENDREDI - SAMEDI</p></div>
+                <div class="infos_bloc_tarifs">
+                    <div class="infos1">
+                        <p>14h - 19h</p>
+                    </div>
+                    <div class="infos2">
+                        <p>Après 19h</p>
+                    </div>
+                    <div class="infos_g">
+                        <p>5.50€ / pers</p>
+                    </div>
+                    <div class="infos_d">
+                        <p>7.00€ / pers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bloc_tarif_ordi">
+                <div class="jour"><p>DIMANCHE</p></div>
+                <div class="infos_bloc_tarifs">
+                    <div class="infos1">
+                        <p>14h - 19h</p>
+                    </div>
+                    <div class="infos2">
+                        <p>Après 19h</p>
+                    </div>
+                    <div class="infos_g">
+                        <p>5.50€ / pers</p>
+                    </div>
+                    <div class="infos_d">
+                        <p>5.50€ / pers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="laser" class="bloc_activite hidden">
+            <div class="bloc_tarif_ordi">
+                <div class="jour"><p class="jours">Offre découverte</p></div>
+                <div class="infos_bloc_tarifs">
+                    <div class="infos1">
+                        <p>7 à 12 ans inclus</p>
+                    </div>
+                    <div class="infos2">
+                        <p>13 ans et plus</p>
+                    </div>
+                    <div class="infos_g">
+                        <p>6.00€ / pers</p>
+                    </div>
+                    <div class="infos_d">
+                        <p>7.00€ / pers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="etudiant">
+            <div class="titre_section">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                </svg>
+                <p>Vous êtes étudiants ?</p>
+            </div>
+            <p>Bénéficiez d'une remise de 1.00€ sur le prix initial !</p>
+            <span>Sur présentation d'une carte étudiante avec l'inscription "carte étudiant" + photo + date de l'année en cours</span>
+        </div>
+
+        <div class="chaussettes">
+            <div class="infos_chaussettes">
+                <div><p>LOCATION DE CHAUSSETTES</p></div>
+                <div class="prix"><p>2.00€</p></div>
+            </div>
+            <div class="infos_chaussettes">
+                <div><p>VENTE DE CHAUSSETTES</p></div>
+                <div class="prix"><p>2.00€</p></div>
+            </div>
+            <p>A noter que le port de chaussettes ets obligatoire.</p>
+        </div>
+
+        <div class="infos_importantes">
+            <div class="titre_section">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                </svg>
+                <p>Informations importantes</p>
+            </div>
+            <p>TOUT ticket C.E daté avant le décembre 2023 n'est plus valable.
+                <br> TOUT ticket C.E non daté, n'est plus valable depuis le 31 décembre 2022.
+                <br><br>Merci de votre compréhension.
+            </p>
+        </div>
+
+        <div class="anniversaire">
+            <div class="titre_section">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m15-3.379a48.474 48.474 0 0 0-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 0 1 3 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 0 1 6 13.12M12.265 3.11a.375.375 0 1 1-.53 0L12 2.845l.265.265Zm-3 0a.375.375 0 1 1-.53 0L9 2.845l.265.265Zm6 0a.375.375 0 1 1-.53 0L15 2.845l.265.265Z" />
+                </svg>
+                <h2>Formules anniversaire</h2>
+            </div>
+            <span>(Tarif réservé uniquement aux enfants jusqu'à 16 ans maximum)</span>
+            <div class="formules">
+                <div class="formule">
+                    <p class="nom_formule">FORMULE 1</p>
+                    <p>1 partie de bowling <span> (chaussures comprises) </span>
+                        <br>+ 1 boisson soft <span> (maximum 3,50€) </span>
+                        <br>+ 1 table réservée <span> (goûter d'une heure maximum) </span>
+                    </p>
+                    <p class="nom_formule">7.50€ / enfant</p>
+                </div>
+                <div class="formule">
+                    <p class="nom_formule">FORMULE 2</p>
+                    <p>2 parties de bowling <span> (chaussures comprises) </span>
+                        <br>+ 1 boisson soft <span> (maximum 3,50€) </span>
+                        <br>+ 1 table réservée <span> (goûter d'une heure maximum) </span>
+                    </p>
+                    <p class="nom_formule">13.50€ / enfant</p>
+                </div>
+                <div class="infos_comple_anniv">
+                    <div class="invitations">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                        </svg>
+                        <a href="img/carton_anniversaire.pdf" download>Télécharger les cartons d'invitations</a>
+                    </div>
+                    <a href="{{ path('app_reservations') }}" class="boutonBlanc">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                        </svg>
+                        Réserver
+                    </a>
+                </div>
+            </div>
+            <p>Nous ne proposons à ce jour aucune formule anniversaire pour le lasergame. </p>
+        </div>
+    </div>
+
 {% endblock %}

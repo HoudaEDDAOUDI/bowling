@@ -1,20 +1,228 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccueilController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div id="index">
+        <div id="header">
+            <div id="text_header">
+                <a id="events_header_button" class="wow boutonBlanc button_header" href="#">Nouveau évènements</a>
+                <h1>Bowling des 3 Seine</h1>
+                <p>Ouvert à 14h du mardi au dimanche et les lundis de vacances scolaires</p>
+                <div id="button_header">
+                    <a class="boutonBlanc button_header" href="{{ path('app_reservations') }}">Réserver</a>
+                    <a class="boutonTransparent button_header" href="{{ path('app_contact') }}">Contact</a>
+                </div>
+            </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        </div>
+        <div id="ellipse1" class="wow animate__animated animate__fadeInUp"></div>
+        <div id="div_boule" class="wow animate__animated animate__fadeIn" data-wow-delay="0.5s" data-wow-duration="1s">
+            <img id="boule_header" src="img/boule_bowling.png" alt="image boule de bowling">
+        </div>
+        <div id="activites" class="wow animate__animated animate__fadeInUp">
+            <h2>Nos activités</h2>
+            <div id="activites_grid">
+                <div id="carte_bowling" class="activity_card">
+                    <h3 class="h3_card">S'amuser<br>au Bowling</h3>
+                    <img src="img/quille.png" alt="quille de bowling" id="quille1">
+                    <img src="img/quille.png" alt="quille de bowling" id="quille2">
+                    <img src="img/boule_carte.png" alt="boule de bowling" id="boule_carte">
+                    <div class="activity_link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z" clip-rule="evenodd" />
+                        </svg>
+                        <a href="#">Se renseigner</a>
+                    </div>
+                </div>
+                <div id="carte_arcade" class="activity_card">
+                    <h3 class="h3_card">Se challenger aux<br>jeux d'arcade</h3>
+                    <img src="img/joystick.png" alt="joystick d'arcade" id="joystick1">
+                    <img src="img/joystick.png" alt="joystick d'arcade" id="joystick2">
+                    <div class="activity_link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z" clip-rule="evenodd" />
+                        </svg>
+                        <a href="#">Se renseigner</a>
+                    </div>
+                </div>
+                <div id="carte_billard" class="activity_card">
+                    <h3 class="h3_card">Se défier autour<br>du Billard</h3>
+                    <img src="img/billard_6.jpeg" alt="boule de billard numéro 6" id="billard_6">
+                    <img src="img/billard_8.jpeg" alt="boule de billard numéro 8" id="billard_8">
+                    <img src="img/quille_billard.png" alt="quille de billard" id="quille_billard1">
+                    <img src="img/quille_billard.png" alt="quille de billard" id="quille_billard2">
+                    <div class="activity_link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z" clip-rule="evenodd" />
+                        </svg>
+                        <a href="#">Se renseigner</a>
+                    </div>
+                </div>
+                <div id="carte_soif" class="activity_card">
+                    <img src="img/eau.png" alt="cocktail fraise" id="eau_fraise">
+                    <h3 class="h3_card">Une<br>petite soif</h3>
+                    <div class="activity_link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z" clip-rule="evenodd" />
+                        </svg>
+                        <a href="#">Se renseigner</a>
+                    </div>
+                </div>
+                <div id="carte_laser" class="activity_card">
+                    <h3 class="h3_card">S'affronter au laser game</h3>
+                    <img src="img/laser.svg" alt="laser néon violet et rose" id="laser">
+                    <img src="img/pistolet_laser.png" alt="laser game pistolet" id="pistolet_laser">
+                    <div class="activity_link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z" clip-rule="evenodd" />
+                        </svg>
+                        <a href="#">Se renseigner</a>
+                    </div>
+                </div>
+                <div id="carte_salle" class="activity_card">
+                    <h3 class="h3_card">Profiter d'une salle privée</h3>
+                    <img src="img/stylos.png" alt="stylos blanc" id="stylo_carte">
+                    <div class="activity_link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z" clip-rule="evenodd" />
+                        </svg>
+                        <a href="#">Se renseigner</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="info_infra">
+            <div class="info_text">
+                <p class="info_number wow animate__animated animate__fadeInLeft text1" data-wow-delay="0.2s">1</p>
+                <p class="info_texts wow animate__animated animate__fadeInRight text1" data-wow-delay="0.2s">espace jeux d'arcade</p>
+            </div>
+            <div class="info_text">
+                <p class="info_number wow animate__animated animate__fadeInLeft text2" data-wow-delay="0.2s">6</p>
+                <p class="info_texts wow animate__animated animate__fadeInRight text2" data-wow-delay="0.2s">billards anglais</p>
+            </div>
+            <div class="info_text">
+                <p class="info_number wow animate__animated animate__fadeInLeft text3" data-wow-delay="0.2s">18</p>
+                <p class="info_texts wow animate__animated animate__fadeInRight text3" data-wow-delay="0.2s">pistes de bowling</p>
+            </div>
+            <div class="info_text">
+                <p class="info_number wow animate__animated animate__fadeInLeft text4" data-wow-delay="0.2s">300</p>
+                <p class="info_texts wow animate__animated animate__fadeInRight text4" data-wow-delay="0.2s">m2 de laser game</p>
+            </div>
+        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/bowling/src/Controller/AccueilController.php</code></li>
-        <li>Your template at <code>/var/www/bowling/templates/accueil/index.html.twig</code></li>
-    </ul>
-</div>
+
+        <div id="div_events" class="wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
+            <h2>Nos évènements</h2>
+            <div id="div_events_grid">
+                <div id="events_noel" class="events_click">
+                    <img src="img/chapeau_noel.png" alt="chapeau de noel" id="chapeau1">
+                    <img src="img/chapeau_noel.png" alt="chapeau de noel" id="chapeau2">
+                    <h3>Noël</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                    <p>C’est la saison des fêtes, alors venez déguster nos boissons festives : notre bière de Noël <strong>La Licorne de Noël</strong> et nos cocktails, <strong>le Golden X-mas & l’Apple X-mas.</strong></p>
+                    <a class="button_events boutonBlanc" href="#">Découvrir</a>
+                </div>
+                <div id="events_rose" class="events_click">
+                    <h3>Octobre rose</h3>
+                    <img src="img/ruban_rose.png" alt="ruban rose octobre rose" id="ruban1">
+                    <img src="img/ruban_rose.png" alt="ruban rose octobre rose" id="ruban2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                    <p>Soutenons la lutte contre le cancer du sein ! Pour chaque partie achetée, la location des chaussures est reversée à @liguecancer10_aube10 tout comme les bénéfices des objets en vente dans notre vitrine !</p>
+                    <a class="button_events boutonBlanc" href="#">Découvrir</a>
+                </div>
+                <div id="events_etud" class="events_click">
+                    <h3>Étudiants</h3>
+                    <img src="img/etudiant_chapeau.png" alt="chapeau etudiant" id="etud1">
+                    <img src="img/etudiant_chapeau.png" alt="chapeau etudiant" id="etud2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                    <p>La fin des partiels approche ! Pour décompresser, Bowling 3 Seine vous propose une soirée spéciale étudiante. Profitez de tarifs exclusifs ! En effet, la location de chaussures est offerte sur présentation d'une carte étudiante valide.</p>
+                    <a class="button_events boutonBlanc" href="#">Découvrir</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="div_questions">
+            <h2>On répond à vos questions</h2>
+            <div class="question">
+                <div class="question_text">
+                    <p>Est-ce que les tout petits peuvent jouer au bowling ?</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </div>
+                <hr>
+                <div class="reponse">
+                    <p>Oui, le Bowling des 3 Seine est équipé de barrières automatiques sur ses 18 pistes, ce qui permet aux enfants de jouer facilement et de s'amuser en toute sécurité.</p>
+                    <hr>
+                </div>
+
+            </div>
+            <div class="question">
+                <div class="question_text">
+                    <p>Y a-t-il des offres spéciales, des réductions, ou des abonnements ?</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </div>
+                <hr>
+                <div class="reponse">
+                    <p>Le Bowling des 3 Seine propose des tarifs étudiants (réduction de 1€ sur présentation d'une carte étudiante valide) et des formules anniversaires pour les enfants. Certains évènements proposent des réductions, n'hésitez pas à consulter la page évènements pour en savoir plus.</p>
+                    <hr>
+                </div>
+            </div>
+            <div class="question">
+                <div class="question_text">
+                    <p>Proposez-vous des boules légères adaptées aux enfants ou aux débutants ?</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </div>
+                <hr>
+                <div class="reponse">
+                    <p>Oui, le bowling est adapté aux enfants et aux débutants grâce à des boules légères et des barrières automatiques pour faciliter le jeu.</p>
+                    <hr>
+                </div>
+
+            </div>
+            <div class="question">
+                <div class="question_text">
+                    <p>Y a-t-il des options de jeu pour les joueurs expérimentés ?</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </div>
+                <hr>
+                <div class="reponse">
+                    <p>Oui, nous proposons des pistes adaptées aux joueurs expérimentés, avec des conditions optimales pour les compétitions et des boules de haute qualité. Si vous voulez prendre des cours n'hésitez pas à contacter le club Troyes Gymnique Bowling qui est un de nos partenaires.</p>
+                    <hr>
+                </div>
+
+            </div>
+            <div class="question">
+                <div class="question_text">
+                    <p>Le bar propose-t-il des options végétariennes ?</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </div>
+                <hr>
+                <div class="reponse">
+                    <p>Oui, notre bar propose plusieurs options végétariennes, comme des snacks, des salades, et des plats adaptés à tous les régimes alimentaires. N'hésitez pas à demander notre menu !</p>
+                    <hr>
+                </div>
+            </div>
+            <div id="question_contact">
+                <h3>Vous avez d'autres questions ?</h3>
+                <a class="boutonBlanc bouton_question" href="{{ path('app_contact') }}">Contactez nous</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

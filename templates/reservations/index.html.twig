@@ -1,20 +1,99 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ReservationsController!{% endblock %}
+{% block title %}Réservation{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <svg class="svg" width="940" height="832" viewBox="0 0 940 832" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_f_125_231)">
+            <circle cx="143" cy="35" r="297" fill="url(#paint0_radial_125_231)" fill-opacity="0.7"/>
+        </g>
+        <defs>
+            <filter id="filter0_f_125_231" x="-654" y="-762" width="1594" height="1594" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_125_231"/>
+            </filter>
+            <radialGradient id="paint0_radial_125_231" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(143 35) rotate(90) scale(297)">
+                <stop offset="0%" stop-color="#8800F2"/>
+                <stop offset="100%" stop-color="#F6008F"/>
+            </radialGradient>
+        </defs>
+    </svg>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div id="reservationFormulaire">
+        <h1>Réservations</h1>
+        <p>Nous rappelons qu'aucune réservation de moins de 72h ne pourra et ne sera validée !<br>
+            Réponse sous 24/48h ouvrées si demande conforme.<br>
+            Si vous rencontrez des soucis de contact via notre formulaire, vous pouvez nous contacter via l'adresse mail
+            :<br>
+            <a href="mailto:bowlingdes3seine@orange.fr">bowlingdes3seine@orange.fr</a>
+        </p>
+        <hr>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/bowling/src/Controller/ReservationsController.php</code></li>
-        <li>Your template at <code>/var/www/bowling/templates/reservations/index.html.twig</code></li>
-    </ul>
-</div>
+
+        <form method="POST" action="{{ path('app_reservations') }}">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <p><span>*</span>Champs obligatoire</p>
+            <div class="items_reservations item1">
+                <label for="nom">Nom<span>*</span></label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required aria-required="true" title="Veuillez saisir un nom" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[-' ][A-Za-zÀ-ÖØ-öø-ÿ]+)*$">
+            </div>
+
+            <div class="items_reservations item2">
+                <label for="prenom">Prénom<span>*</span></label>
+                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[-' ][A-Za-zÀ-ÖØ-öø-ÿ]+)*$" title="Veuillez saisir un prénom" required aria-required="true">
+            </div>
+
+            <div class="items_reservations item3">
+                <label for="email">Email<span>*</span></label>
+                <input type="email" id="email" name="email" placeholder="exemple@domaine.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required title="Veuillez saisir une adresse mail valide (nom@domaine.fr)"
+                       aria-required="true">
+            </div>
+
+            <div class="items_reservations item4">
+                <label for="telephone">Numéro de téléphone<span>*</span></label>
+                <input type="tel"
+                       id="telephone"
+                       name="telephone"
+                       placeholder="06.06.06.06.60"
+                       pattern="[0-9]{2}\.[0-9]{2}\.[0-9]{2}\.[0-9]{2}\.[0-9]{2}"
+                       title="Entrez un numéro de téléphone valide (10 chiffres français, sans espaces)"
+                       required>
+            </div>
+
+            <div class="items_reservations item5">
+                <label for="nombre">Nombre de personnes<span>*</span></label>
+                <div class="counter" role="group" aria-labelledby="nombre">
+                    <button id="baisse" type="button" aria-label="Réduire" >-</button>
+                    <input type="number" id="nombre" name="nombre" value="1" min="1" aria-live="polite" readonly>
+                    <button id="augmentation" type="button" aria-label="Augmenter" >+</button>
+                </div>
+            </div>
+
+            <div class="items_reservations item6">
+                <label for="activite">Activité de la réservation<span>*</span></label>
+                <select id="activite" name="activite" required>
+                    <option value="" disabled selected>Choisir l'activité</option>
+                    <option value="anniversaire">Réservation anniversaire</option>
+                    <option value="bowling">Réservation piste de bowling</option>
+                    <option value="laserGame">Réservation laser game</option>
+                    <option value="sallePrivee">Réservation de salle privée</option>
+                </select>
+            </div>
+
+            <div class="item7">
+                <button class="boutonBlanc" type="submit" aria-label="Suivant">Suivant
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.00004 12L3.26904 3.125C9.80191 5.025 15.9624 8.02646 21.485 12C15.9627 15.9735 9.80257 18.9749 3.27004 20.875L6.00004 12ZM6.00004 12H13.5" stroke="#000616" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </form>
+    </div>
+
+
 {% endblock %}

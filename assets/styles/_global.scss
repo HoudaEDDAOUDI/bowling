@@ -1,23 +1,39 @@
 //variables, fonts, couleurs, titres
-//COULEURS
-$couleurPrincipale : #f7f7f7;
-$couleurbg : #000511;
-$couleurfooter : #25052C;
-$couleurDeg1Neon : #8800F2;
-$couleruDeg2Neon: #F6008F;
-$couleurDegFont: #EDADF5;
-$couleurRéservation: #9F3770;
 
-//FONT
-$fontBase: 'Satoshi', sans-serif;
-
-li{
-  text-decoration: none;
+html, body {
+  background-color: $couleurbg;
+  color: $couleurPrincipale;
+  font-family: $fontBase;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden ;
 }
 
-a{
-  text-decoration: none;
-}
 html{
-  background-color: #9F3770;
+  //AJOUTERRRR
+  position: relative;
+}
+
+main {
+  width: 90%;
+  margin: 0 auto;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  //CHANGER
+  color: #f7f7f7;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  z-index: 0;
 }

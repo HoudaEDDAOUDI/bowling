@@ -1,17 +1,140 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta name="description" content="Découvrez le Bowling des 3 seine. Renseignez vous sur les horaires et les tarifs mais également nos activités sur place. Vous pourrez également réserver via un formulaire de réservation. Si vous avez plus de question, n'hésitez pas à nous contacter via notre formulaire de contact.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logo_favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" ></script>
+    <script>
+        new WOW().init();
+    </script>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+{% block header %}
+    <header>
+        <nav>
+            <img src="img/logo_ordi.png" alt="logo du bowling">
+            <ul class="menu_ordi">
+                <li><a href="{{ path('app_accueil') }}" class="{% if app.request.get('_route') == 'app_accueil' %}active{% endif %}">Accueil</a></li>
+                <li><a href="{{ path('app_horaires') }}" class="{% if app.request.get('_route') == 'app_horaires' %}active{% endif %}">Horaires et tarifs</a></li>
+                <li><a href="#" class="{% if app.request.get('_route') == 'app_activites' %}active{% endif %}">Nos activités</a></li>
+                <li><a href="{{ path('app_reservations') }}" class="{% if app.request.get('_route') == 'app_reservations' %}active{% endif %}">Réservations</a></li>
+                <li><a href="#" class="{% if app.request.get('_route') == 'app_evenements' %}active{% endif %}">Évènements</a></li>
+                <li><a href="{{ path('app_contact') }}" class="{% if app.request.get('_route') == 'app_contact' %}active{% endif %}">Contact</a></li>
+            </ul>
+            <div class="menu_burger">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+            </div>
+
+            <!--MENU BURGER TELEPHONE-->
+            <div class="menu_burger_tel">
+                <ul>
+                    <li>
+                        <svg id="cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                        </svg>
+                    </li>
+                    <li><a href="{{ path('app_accueil') }}">Accueil</a></li>
+                    <li><a href="{{ path('app_horaires') }}">Horaires et tarifs</a></li>
+                    <li><a href="#">Nos activités</a></li>
+                    <li><a href="{{ path('app_reservations') }}">Réservations</a></li>
+                    <li><a href="#">Évènements</a></li>
+                    <li><a href="{{ path('app_contact') }}">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block footer %}
+    <footer>
+
+
+        <div class="infos_footer">
+            <div class="nous_contactez">
+                <h2>Nous contacter</h2>
+                <div class="contact">
+                    <svg width="66" height="66" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="23" r="22.5" stroke="white"/>
+                        <path d="M13.25 17.75C13.25 26.034 19.966 32.75 28.25 32.75H30.5C31.0967 32.75 31.669 32.5129 32.091 32.091C32.5129 31.669 32.75 31.0967 32.75 30.5V29.128C32.75 28.612 32.399 28.162 31.898 28.037L27.475 26.931C27.035 26.821 26.573 26.986 26.302 27.348L25.332 28.641C25.05 29.017 24.563 29.183 24.122 29.021C22.4849 28.4191 20.9982 27.4686 19.7648 26.2352C18.5314 25.0018 17.5809 23.5151 16.979 21.878C16.817 21.437 16.983 20.95 17.359 20.668L18.652 19.698C19.015 19.427 19.179 18.964 19.069 18.525L17.963 14.102C17.9021 13.8587 17.7617 13.6427 17.5641 13.4883C17.3664 13.334 17.1228 13.2501 16.872 13.25H15.5C14.9033 13.25 14.331 13.4871 13.909 13.909C13.4871 14.331 13.25 14.9033 13.25 15.5V17.75Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <a href="tel:0325450099">03 25 45 00 99</a>
+                </div>
+                <div class="contact">
+                    <svg width="66" height="66" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="23" r="22.5" stroke="#F7F7F7"/>
+                        <path d="M32.75 17.75V28.25C32.75 28.8467 32.5129 29.419 32.091 29.841C31.669 30.2629 31.0967 30.5 30.5 30.5H15.5C14.9033 30.5 14.331 30.2629 13.909 29.841C13.4871 29.419 13.25 28.8467 13.25 28.25V17.75M32.75 17.75C32.75 17.1533 32.5129 16.581 32.091 16.159C31.669 15.7371 31.0967 15.5 30.5 15.5H15.5C14.9033 15.5 14.331 15.7371 13.909 16.159C13.4871 16.581 13.25 17.1533 13.25 17.75M32.75 17.75V17.993C32.75 18.3771 32.6517 18.7549 32.4644 19.0903C32.2771 19.4257 32.0071 19.7075 31.68 19.909L24.18 24.524C23.8252 24.7425 23.4167 24.8582 23 24.8582C22.5833 24.8582 22.1748 24.7425 21.82 24.524L14.32 19.91C13.9929 19.7085 13.7229 19.4267 13.5356 19.0913C13.3483 18.7559 13.25 18.3781 13.25 17.994V17.75" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <a href="mailto:bowlingdes3seine@orange.fr">bowlingdes3seine@orange.fr</a>
+                </div>
+                <div class="contact">
+                    <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="23" r="22.5" stroke="#F7F7F7"/>
+                        <path d="M26.5 21.25C26.5 22.1783 26.1313 23.0685 25.4749 23.7249C24.8185 24.3813 23.9283 24.75 23 24.75C22.0717 24.75 21.1815 24.3813 20.5251 23.7249C19.8687 23.0685 19.5 22.1783 19.5 21.25C19.5 20.3217 19.8687 19.4315 20.5251 18.7751C21.1815 18.1187 22.0717 17.75 23 17.75C23.9283 17.75 24.8185 18.1187 25.4749 18.7751C26.1313 19.4315 26.5 20.3217 26.5 21.25Z" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M31.75 21.25C31.75 29.5823 23 34.375 23 34.375C23 34.375 14.25 29.5823 14.25 21.25C14.25 18.9294 15.1719 16.7038 16.8128 15.0628C18.4538 13.4219 20.6794 12.5 23 12.5C25.3206 12.5 27.5462 13.4219 29.1872 15.0628C30.8281 16.7038 31.75 18.9294 31.75 21.25Z" stroke="#F7F7F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <a href="https://maps.app.goo.gl/P1g66omRh9MqYAZdA" target="_blank">16, boulevard Jules Guesdes, 10000 Troyes</a>
+                </div>
+            </div>
+
+            <div class="recrutez_formules">
+                <div class="info_footer">
+                    <h2>Envie de nous rejoindre ?</h2>
+                    <a href="#">Nous recrutons</a>
+                </div>
+
+                <div class="info_footer">
+                    <h2>Nos formules</h2>
+                    <a href="{{ path('app_horaires') }}">Formule anniversaire</a>
+                    <a href="{{ path('app_reservations') }}">Réserver la salle privée</a>
+                </div>
+            </div>
+
+            <div class="acces_reseaux">
+                <div class="info_footer">
+                    <h2>Comment y accéder ?</h2>
+                    <p>Bus : via la ligne 3, arrêt Claudel</p>
+                    <p>En voiture : parking à votre disposition</p>
+                </div>
+
+                <div class="info_footer">
+                    <h2>Nos réseaux sociaux</h2>
+                    <div class="reseaux_icons">
+                        <a href="https://www.facebook.com/bowlingdestroisseine/?locale=fr_FR" target="_blank">
+                            <img src="img/facebook.svg" alt="icon facebook">
+                        </a>
+                        <a href="https://www.instagram.com/bowlingdes3seine/?hl=fr" target="_blank">
+                            <img id="insta" src="img/instagram.svg" alt="icon instagram">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mentions">
+            <a href="#">Partenaires</a>
+            <a href="#">Espace publicité</a>
+            <a href="#">Mentions légales</a>
+            <a href="#">Réglement intérieur</a>
+        </div>
+
+    </footer>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
 </html>

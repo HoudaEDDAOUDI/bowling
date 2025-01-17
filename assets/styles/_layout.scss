@@ -2,6 +2,7 @@
 //AJOUTER
 .boutonBlanc {
   @include bouton();
+  transition: all 0.3s ease-in-out;
 
   &:hover {
     @include boutonHover();
@@ -13,6 +14,7 @@
 
 .boutonTransparent {
   @include bouton(none, $couleurPrincipale);
+  transition: all 0.3s ease-in-out;
   svg{
     transform: scaleX(-1);
     path {
@@ -70,7 +72,9 @@ header{
           fill: $couleurPrincipale;
         }
         a{
+
           color: $couleurPrincipale;
+
         }
       }
     }
@@ -85,6 +89,7 @@ footer{
   padding: 1px 30px;
   display: flex;
   flex-wrap: wrap;
+  z-index: 10;
   p{
     @extend %paragraphe;
   }
@@ -150,6 +155,7 @@ footer{
           padding: 10px 20px;
           border-radius: 50px;
           text-decoration: none;
+          transition: all 0.3s ease-in-out;
 
           &:hover {
             background: rgba($couleurPrincipale, 0.2);

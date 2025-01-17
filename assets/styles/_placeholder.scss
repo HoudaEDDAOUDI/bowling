@@ -1,0 +1,54 @@
+// REDACTION---------------------------------------------------
+%H2Grand{
+  font-size: 50pt;
+  font-weight: 800;
+}
+%H2Petit{
+  font-size: 30pt;
+  font-weight: 500;
+}
+%H3{
+  font-size: 20pt;
+  font-weight: 400;
+}
+%paragraphe{
+  font-size: 15px;
+  margin: 0;
+}
+
+
+//FLEX----------------------------------------------------------
+%center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//FORMULAIRE-------------------------------------------------------
+%input{
+  width: 100%;
+  margin-top: 0.4rem;
+  height: 2.5rem;
+  background-color: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 0.8rem;
+}
+// CARTE AVEC IMAGES -----------------------
+%div_image{
+  position: relative;
+  overflow: hidden;
+}
+
+%z-index_text{
+  h3, .activity_link, p{
+    position: relative;
+    z-index: 10;
+  }
+}
+
+%z-index_a{
+  a{
+    position: relative;
+    z-index: 10;
+  }
+}
