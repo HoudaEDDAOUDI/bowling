@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation{% endblock %}
+
+{% block body %}
+    <svg class="svg" width="940" height="832" viewBox="0 0 940 832" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_f_125_231)">
+            <circle cx="143" cy="35" r="297" fill="url(#paint0_radial_125_231)" fill-opacity="0.7"/>
+        </g>
+        <defs>
+            <filter id="filter0_f_125_231" x="-654" y="-762" width="1594" height="1594" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_125_231"/>
+            </filter>
+            <radialGradient id="paint0_radial_125_231" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                            gradientTransform="translate(143 35) rotate(90) scale(297)">
+                <stop offset="0%" stop-color="#8800F2"/>
+                <stop offset="100%" stop-color="#F6008F"/>
+            </radialGradient>
+        </defs>
+    </svg>ù
+
+    <form method="POST" action="{{ path('app_calendrier') }}">
+
+        <div class="calendrierReservation">
+
+            <div class="explication">
+                <h1>Réservations</h1>
+                <p>Nous rappelons qu'aucune réservation de moins de 72h ne pourra et ne sera validée !<br>
+                    Réponse sous 24/48h ouvrées si demande conforme.<br>
+                    Si vous rencontrez des soucis de contact via notre formulaire, vous pouvez nous contacter via
+                    l'adresse
+                    mail
+                    :<br>
+                    <a href="bowlingdes3seine@orange.fr">bowlingdes3seine@orange.fr</a>
+                </p>
+            </div>
+            <div class="etapesHoraire">
+                <img src="img/etape.svg" alt="etape horaire et date">
+                <div>
+                    <p>Information</p>
+                    <p><strong>Date et Horaire</strong></p>
+                    <p>Récapitulatif</p>
+                </div>
+            </div>
+            <div class="calendrierHoraires">
+                <div class="wrapper">
+                    <div class="haut_calendar">
+                        <p class="current-date"></p>
+                        <div class="icons">
+                            <svg id="prev" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/>
+                            </svg>
+
+                            <svg id="next" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                            </svg>
+
+                        </div>
+                    </div>
+
+                    <div class="calendar">
+                        <ul class="weeks">
+                            <li>Lun</li>
+                            <li>Mar</li>
+                            <li>Mer</li>
+                            <li>Jeu</li>
+                            <li>Ven</li>
+                            <li>Sam</li>
+                            <li>Dim</li>
+                        </ul>
+                        <ul class="days"></ul>
+                    </div>
+
+                    <div class="items_input">
+                        <label for="text">Date</label>
+                        <input type="text" id="text" class="input_date" name="dateDuJour" placeholder="date" required aria-required="true">
+                    </div>
+
+
+                </div>
+
+                <div id="heures">
+                    <h2>Horaires</h2>
+                    <ul class="horaireReservation">
+                        <li class="avant">Veuillez choisir une date</li>
+                    </ul>
+                    <div class="items_input2">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="bouttonFrom">
+                <a href="{{ path('app_reservations') }}" class="boutonTransparent">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.00004 12L3.26904 3.125C9.80191 5.025 15.9624 8.02646 21.485 12C15.9627 15.9735 9.80257 18.9749 3.27004 20.875L6.00004 12ZM6.00004 12H13.5"
+                              stroke="#000616" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Retour
+                </a>
+                <button class="boutonBlanc">
+                    Suivant
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.00004 12L3.26904 3.125C9.80191 5.025 15.9624 8.02646 21.485 12C15.9627 15.9735 9.80257 18.9749 3.27004 20.875L6.00004 12ZM6.00004 12H13.5"
+                              stroke="#000616" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

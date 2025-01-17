@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Récapitulatif{% endblock %}
+
+{% block body %}
+    <svg class="svg" width="940" height="832" viewBox="0 0 940 832" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_f_125_231)">
+            <circle cx="143" cy="35" r="297" fill="url(#paint0_radial_125_231)" fill-opacity="0.7"/>
+        </g>
+        <defs>
+            <filter id="filter0_f_125_231" x="-654" y="-762" width="1594" height="1594" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_125_231"/>
+            </filter>
+            <radialGradient id="paint0_radial_125_231" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                            gradientTransform="translate(143 35) rotate(90) scale(297)">
+                <stop offset="0%" stop-color="#8800F2"/>
+                <stop offset="100%" stop-color="#F6008F"/>
+            </radialGradient>
+        </defs>
+    </svg>
+
+
+    <form method="POST" action="{{ path('app_recapitulatif') }}">
+        <div class="recap">
+            <div class="explication">
+                <h1>Réservations</h1>
+                <p>Nous rappelons qu'aucune réservation de moins de 72h ne pourra et ne sera validée !<br>
+                    Réponse sous 24/48h ouvrées si demande conforme.<br>
+                    Si vous rencontrez des soucis de contact via notre formulaire, vous pouvez nous contacter via
+                    l'adresse
+                    mail
+                    :<br>
+                    <a href="bowlingdes3seine@orange.fr">bowlingdes3seine@orange.fr</a>
+                </p>
+            </div>
+            <div class="etapesHoraire">
+                <img src="img/etape3.svg" alt="etape horaire et date">
+                <div>
+                    <p>Information</p>
+                    <p>Date et Horaire</p>
+                    <p><strong>Récapitulatif</strong></p>
+                </div>
+            </div>
+            <div class="recapInfos">
+                <h2>Récapitulatif</h2>
+
+                <div class="infoPerso">
+                    <p>{{ data.prenom }} {{ data.nom }}</p>
+                    <p>{{ data.email }}</p>
+                    <p>{{ data.telephone }}</p>
+                </div>
+
+                <div class="infosReservation">
+                    <div class="infoReservation">
+                        <img src="img/bowling.png" alt="bowling">
+                        <div>
+                            <p>{{ data.activite }}</p>
+                            <p>Activité</p>
+                        </div>
+                    </div>
+                    <div class="infoReservation">
+                        <img src="img/calendar.png" alt="calendar">
+                        <div>
+                            {% for key, value in data2 %}
+                                {% if key != 'date' %}
+                                    <p>{{ value }}</p>
+                                {% endif %}
+                            {% endfor %}
+                            <p>Date</p>
+                        </div>
+                    </div>
+                    <div class="infoReservation">
+                        <img src="img/time.png" alt="horloge">
+                        <div>
+                            {% for key, value in data2 %}
+                                {% if key == 'date' %}
+                                    <p>{{ value }}</p>
+                                {% endif %}
+                            {% endfor %}
+                            <p>Heures</p>
+                        </div>
+                    </div>
+                    <div class="infoReservation">
+                        <img src="img/group.png" alt="">
+                        <div>
+                            <p>{{ data.nombre }} personnes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bouttonFrom">
+                <a href="{{ path('app_calendrier') }}" class="boutonTransparent">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.00004 12L3.26904 3.125C9.80191 5.025 15.9624 8.02646 21.485 12C15.9627 15.9735 9.80257 18.9749 3.27004 20.875L6.00004 12ZM6.00004 12H13.5"
+                              stroke="#000616" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Retour
+                </a>
+                <button type="submit" class="boutonBlanc">
+                    Suivant
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.00004 12L3.26904 3.125C9.80191 5.025 15.9624 8.02646 21.485 12C15.9627 15.9735 9.80257 18.9749 3.27004 20.875L6.00004 12ZM6.00004 12H13.5"
+                              stroke="#000616" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
